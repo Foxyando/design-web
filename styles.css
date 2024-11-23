@@ -1,0 +1,218 @@
+/* Reset stylů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Proměnné (CSS custom properties) */
+  :root {
+    --background-color: #1a1a1a;
+    --primary-color: #ffffff;
+    --secondary-color: #333333;
+    --highlight-color: #ffcc00;
+    --text-color: #cccccc;
+    --font-size-base: 16px;
+    --font-size-large: 1.5rem;
+    --font-size-small: 0.875rem;
+    --spacing: 1rem;
+    --border-radius: 4px;
+    --max-width: 1200px;
+  }
+  
+  /* Obecné styly */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing);
+  }
+  
+  /* Header */
+  header {
+    background-color: var(--background-color);
+    padding: var(--spacing) 0;
+    border-bottom: 1px solid var(--secondary-color);
+  }
+  
+  header .container {
+    display: flex;
+    flex-direction: column; /* Mobile-first: Vše v jednom sloupci */
+    align-items: center;
+  }
+  
+  header h1 {
+    font-size: var(--font-size-large);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing);
+  }
+  
+  header .highlight {
+    color: var(--highlight-color);
+  }
+  
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Mobile-first: Menu ve sloupci */
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: var(--spacing);
+  }
+  
+  .nav-menu a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap; /* Zabrání zalomení textu */
+  }
+  
+  .nav-actions {
+    display: flex;
+    flex-direction: column; /* Mobile-first: Akce ve sloupci */
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .premium-button {
+    background-color: var(--highlight-color);
+    color: var(--background-color);
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+  }
+  
+  .premium-button:hover {
+    background-color: #ffdd44;
+  }
+  
+  .search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%; /* Mobile-first: Full width */
+  }
+  
+  .search-form input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }
+  
+  .search-form input::placeholder {
+    color: var(--text-color);
+  }
+  
+  .search-form button {
+    background: none;
+    border: none;
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    color: var(--highlight-color);
+  }
+  
+  /* Hlavní sekce (Hero) */
+  .hero {
+    display: flex;
+    flex-direction: column; /* Mobile-first: Flexibilní sloupce */
+    gap: var(--spacing);
+    margin: var(--spacing) 0;
+  }
+  
+  .hero .text {
+    background-color: var(--secondary-color);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+  }
+  
+  .hero img {
+    width: 100%;
+    border-radius: var(--border-radius);
+  }
+  
+  /* Nejnovější články */
+  .latest-articles {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile-first: Jediný sloupec */
+    gap: var(--spacing);
+    margin: var(--spacing) 0;
+  }
+  
+  article {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    color: var(--primary-color);
+  }
+  
+  article img {
+    width: 100%;
+  }
+  
+  article h3 {
+    padding: var(--spacing);
+  }
+  
+  article p {
+    padding: 0 var(--spacing) var(--spacing);
+    color: var(--text-color);
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: var(--spacing);
+    color: var(--text-color);
+    border-top: 1px solid var(--secondary-color);
+  }
+  
+  /* Responzivita: větší obrazovky */
+  @media (min-width: 768px) {
+    header .container {
+      flex-direction: row; /* Desktop: Všechny prvky v jedné řadě */
+      justify-content: space-between; /* Rozložení do stran */
+    }
+  
+    header h1 {
+      text-align: left; /* Zarovnání loga doleva */
+      margin-bottom: 0; /* Odstranění zbytečného prostoru */
+    }
+  
+    .nav-menu {
+      flex-direction: row; /* Desktop: Horizontální menu */
+      justify-content: center; /* Navigace zarovnaná na střed */
+      gap: var(--spacing);
+      margin-bottom: 0;
+    }
+  
+    .nav-actions {
+      flex-direction: row; /* Desktop: Premium a vyhledávání vedle sebe */
+      justify-content: flex-end; /* Zarovnání doprava */
+      gap: var(--spacing);
+    }
+  
+    .search-form {
+      width: auto;
+    }
+  
+    .hero {
+      flex-direction: row; /* Desktop: Vedle sebe */
+    }
+  
+    .latest-articles {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid */
+    }
+  }
+  
